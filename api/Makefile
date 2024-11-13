@@ -45,6 +45,7 @@ build-lambda:
 	@echo "Building Lambda..."
 	@GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o bootstrap -tags lambda.norpc cmd/lambda/lambda.go
 	@zip myFunction.zip bootstrap
+	@rm bootstrap
 
 
 .PHONY: all build run test clean watch build-lambda

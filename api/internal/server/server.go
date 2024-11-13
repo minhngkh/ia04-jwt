@@ -11,12 +11,16 @@ import (
 	"github.com/labstack/echo/v4"
 	echoMiddleware "github.com/labstack/echo/v4/middleware"
 
+	"test-echo/internal/db"
 	"test-echo/internal/logger"
 	"test-echo/internal/route"
 	"test-echo/internal/validator"
 )
 
 func NewEchoHandler() *echo.Echo {
+	// db connection
+	db.Get()
+
 	e := echo.New()
 
 	e.Validator = validator.New()
